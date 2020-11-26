@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     //tworzenie pipeow
     if(pipe(pipefds) == -1) {
 
-        fprintf(stderr, "Failed creating pipe\n");
+        fprintf(stderr, "Nieprawidlowe utworzenie potoku\n");
         return 1;
     }
 
@@ -47,14 +47,14 @@ int main(int argc, char *argv[]) {
 
         if((in_fd = open(argv[1], O_RDONLY)) < 0) {
             
-            fprintf(stderr, "Failed opening file\n");
+            fprintf(stderr, "Nieprawidlowe otworznie pliku\n");
             return 2;
         }
         
         while((n = read(in_fd, &buf, BUFFER_SIZE)) > 0) {
     
             if(write(pipefds[1], &buf, n) < 0) {
-                fprintf(stderr, "Failed writing to pipe\n");
+                fprintf(stderr, "Nieprawidlowe pisanie do potoku\n");
                 return 3;
             }  
         }
