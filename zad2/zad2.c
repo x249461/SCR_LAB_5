@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     
     int pipefds[2], in_fd, n; //pipefds[2]->przechowywanie dwoch koncow pipe'a
     char buf[BUFFER_SIZE];
-    char fname[32];
+   // char fname[32];
 
     //sprawdzenie argumentow
     if(argc < 2){
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     else if (pid > 0) {
         //rodzic
         close(pipefds[0]);
-        //printf("Please input your image path along with its extension (e.g. image.jpg | ~/Desktop/image.jpg):\n");
+
         //scanf("%s", fname);
 
         if((in_fd = open(argv[1], O_RDONLY)) < 0) {
