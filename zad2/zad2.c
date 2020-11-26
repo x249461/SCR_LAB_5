@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     char buf[BUFFER_SIZE];
    // char fname[32];
 
-    //sprawdzenie argumentow
+    // sprawdzenie argumentow
     if(argc < 2){
       fprintf(stderr, "Wprowadz: nazwaProg <nazwaPliku>");
       return 1;
